@@ -1,13 +1,29 @@
-<nav class="navbar bg-black px-3 py-3 flex justify-between items-center rounded-lg m-5 border-9 border-[#fffe03] ">
-  <div class="navbar-logo md:flex">
-    <a routerLink="/" routerLinkActive="active"><img class="h-20" src="logo.jpg"></a>
+<nav class="navbar bg-black px-6 py-4 flex justify-between items-center rounded-lg m-5 border-4 border-[#fffe03] shadow-[0_0_15px_#fffe03]">
+
+  <div class="navbar-logo flex items-center gap-3">
+    <a routerLink="/" routerLinkActive="active" class="flex items-center">
+      <img class="h-16 hover:scale-105 transition-transform duration-300" src="logo.jpg">
+    </a>
   </div>
 
-
-
-  <ul class="navbar-links md:flex gap-12 text-[#fffe03] font-serif text-2xl opacity">
-    <button><a class=" transition duration-400 hover:text-gray-500" routerLink="/groupe" routerLinkActive="active">A propos du groupe</a></button>
-    <button><a class=" transition duration-400 hover:text-gray-500" routerLink="/concert" routerLinkActive="active">Concert</a></button>
-    <button><a class=" transition duration-400 hover:text-gray-500" routerLink="/contact" routerLinkActive="active">Contact</a></button>
+  <ul class="navbar-links hidden md:flex gap-10 text-[#fffe03] font-bold text-xl uppercase tracking-wider">
+    <li>
+      <a routerLink="/groupe" routerLinkActive="active"
+         class="transition duration-300 hover:text-gray-400 hover:underline underline-offset-4 decoration-[#fffe03]">
+        À propos du groupe
+      </a>
+    </li>
+    <li>
+      <a routerLink="/concert" routerLinkActive="active"
+         class="transition duration-300 hover:text-gray-400 hover:underline underline-offset-4 decoration-[#fffe03]">
+        Concerts
+      </a>
+    </li>
+    <li>
+      <a routerLink="/contact" routerLinkActive="active"
+         class="transition duration-300 hover:text-gray-400 hover:underline underline-offset-4 decoration-[#fffe03]">
+        Contact
+      </a>
+    </li>
   </ul>
 </nav>
