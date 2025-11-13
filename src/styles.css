@@ -9,3 +9,9 @@
     @apply text-white bg-gray-900;
   }
 }
+
+/* Dans styles.css */
+.navbar-links {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 2px;
+}
