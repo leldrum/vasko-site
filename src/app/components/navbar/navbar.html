@@ -6,16 +6,35 @@
   </div>
 
   <ul class="navbar-links hidden md:flex gap-10 text-[#fffe03] font-metal text-2xl uppercase tracking-[0.15em]">    
-    <li>
-      <a routerLink="/groupe" routerLinkActive="active"
-         class="transition duration-300 hover:text-gray-400 hover:underline underline-offset-4 decoration-[#fffe03]">
-        À propos du groupe
-      </a>
+     <li class="relative group">
+      <button class="transition duration-300 hover:text-gray-400 hover:underline underline-offset-4 decoration-[#fffe03] flex items-center gap-2">
+        Le Groupe
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:rotate-180">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </button>
+      
+      <div class="absolute top-full left-0 mt-2 w-56 bg-zinc-900 border-2 border-[#fffe03] rounded-lg shadow-[0_0_15px_#fffe03] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+        <a routerLink="/groupe/histoire" 
+           class="block px-6 py-3 text-lg hover:bg-[#fffe03] hover:text-black transition-all duration-200 first:rounded-t-lg">
+          Notre histoire
+        </a>
+        <a routerLink="/groupe/membres" 
+           class="block px-6 py-3 text-lg hover:bg-[#fffe03] hover:text-black transition-all duration-200 last:rounded-b-lg border-t border-gray-700">
+          Les membres
+        </a>
+      </div>
     </li>
     <li>
       <a routerLink="/concert" routerLinkActive="active"
          class="transition duration-300 hover:text-gray-400 hover:underline underline-offset-4 decoration-[#fffe03]">
         Concerts
+      </a>
+    </li>
+     <li>
+      <a routerLink="/galerie" routerLinkActive="active"
+         class="transition duration-300 hover:text-gray-400 hover:underline underline-offset-4 decoration-[#fffe03]">
+        Galerie
       </a>
     </li>
     <li>
