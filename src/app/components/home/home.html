@@ -1,42 +1,42 @@
-<div class="relative w-screen h-screen -mt-35">
-  <img src="principal.png" class="absolute inset-0 w-full h-full object-cover" alt="VASKO band">
-    <div class="absolute inset-0 flex flex-col items-center justify-center gap-4">
-    <h1 class="vasko-neon text-[#fffe03] text-9xl font-bold uppercase tracking-widest">
+<div class="relative w-screen h-screen -mt-20 md:-mt-35">
+  <img src="images/principal.png" class="absolute inset-0 w-full h-full object-cover" alt="VASKO band">
+    <div class="absolute inset-0 flex flex-col items-center justify-center gap-3 md:gap-4 px-4">
+    <h1 class="vasko-neon text-[#fffe03] text-5xl md:text-9xl font-bold uppercase tracking-widest">
         VASKO
     </h1>
-    <p class="text-white text-2xl tracking-[0.3em] uppercase font-light">
+    <p class="text-white text-base md:text-2xl tracking-[0.2em] md:tracking-[0.3em] uppercase font-light text-center">
         Rock Italien Énergique • Calvados
     </p>
-    <a href="groupe/histoire" class="mt-8 bg-[#fffe03] text-black px-8 py-4 text-xl font-bold uppercase rounded-lg hover:scale-105 transition-all duration-300 shadow-[0_0_20px_#fffe03]">
+    <a href="groupe/histoire" class="mt-4 md:mt-8 bg-[#fffe03] text-black px-6 py-3 md:px-8 md:py-4 text-base md:text-xl font-bold uppercase rounded-lg hover:scale-105 transition-all duration-300 shadow-[0_0_20px_#fffe03]">
         Plus d'info
     </a>
     </div>
 </div>
 
 @if (getHeureConcert() !== null) {
-<div class="flex flex-col items-center justify-center gap-8 py-16 bg-black">
-  <p class="font-bold uppercase text-4xl text-[#fffe03] text-center tracking-wide">
+<div class="flex flex-col items-center justify-center gap-4 md:gap-8 py-10 md:py-16 bg-black px-4">
+  <p class="font-bold uppercase text-2xl md:text-4xl text-[#fffe03] text-center tracking-wide">
     Prochain concert dans
   </p>
   
-  <div class="bg-zinc-900 border-4 border-[#fffe03] rounded-2xl px-12 py-8">
-    <div class="text-[#fffe03] font-mono text-7xl font-bold  text-center" 
+  <div class="bg-zinc-900 border-4 border-[#fffe03] rounded-2xl px-6 py-4 md:px-12 md:py-8">
+    <div class="text-[#fffe03] font-mono text-3xl md:text-7xl font-bold text-center" 
          style="text-shadow: 0 0 5px #fffe03, 0 0 20px #fffe03;">
       {{decompte()}}
     </div>
   </div>
-   <p class="font-bold uppercase text-4xl text-[#fffe03] text-center tracking-wide">
+   <p class="font-bold uppercase text-xl md:text-4xl text-[#fffe03] text-center tracking-wide">
      {{getLieuConcert()}}
    </p>
 
-   <button (click)="ouvrirMaps()" class="mt-4 bg-[#fffe03] text-black px-8 py-3 text-lg font-bold uppercase rounded-lg hover:scale-105 transition-all duration-300 shadow-[0_0_20px_#fffe03]">
+   <button (click)="ouvrirMaps()" class="mt-2 md:mt-4 bg-[#fffe03] text-black px-6 py-2 md:px-8 md:py-3 text-base md:text-lg font-bold uppercase rounded-lg hover:scale-105 transition-all duration-300 shadow-[0_0_20px_#fffe03]">
      Adresse de RDV
     </button>
 </div>
 }
 @else{
-    <div class="flex flex-col items-center justify-center gap-8 py-16 bg-black">
-        <p class="font-bold uppercase text-4xl text-[#fffe03] text-center tracking-wide">
+    <div class="flex flex-col items-center justify-center gap-4 md:gap-8 py-10 md:py-16 bg-black px-4">
+        <p class="font-bold uppercase text-xl md:text-4xl text-[#fffe03] text-center tracking-wide">
             {{decompte()}}
         </p>
     </div>
@@ -45,19 +45,19 @@
 <!-- À Propos Section -->
 <div class="w-full bg-black py-20 px-4">
   <div class="max-w-6xl mx-auto">
-    <h2 class="text-5xl font-bold text-[#fffe03] text-center uppercase mb-12 tracking-wide">
+    <h2 class="text-3xl md:text-5xl font-bold text-[#fffe03] text-center uppercase mb-8 md:mb-12 tracking-wide">
       À Propos de VASKO
     </h2>
     
     <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
       <div class="text-white space-y-6">
-        <p class="text-lg leading-relaxed">
+        <p class="text-lg leading-relaxed text-justify">
           VASKO est avant tout un <span class="text-[#fffe03] font-bold">cover band dédié à Vasco Rossi</span>, le légendaire rockeur italien. Basé dans le Calvados, nous perpétuons l'héritage musical de cet artiste emblématique avec passion et énergie.
         </p>
-        <p class="text-lg leading-relaxed">
+        <p class="text-lg leading-relaxed text-justify">
           <span class="text-[#fffe03] font-semibold">Fondé en 2014</span>, le groupe a traversé les années en partageant la musique vibrante de Vasco Rossi. <span class="text-[#fffe03] font-semibold">Repris en 2024</span>, nous nous engageons à offrir des performances électriques et authentiques.
         </p>
-        <p class="text-lg leading-relaxed">
+        <p class="text-lg leading-relaxed text-justify">
           Chaque concert est une expérience inoubliable où nous célébrons les grands succès de Vasco Rossi. Rejoignez-nous et découvrez la puissance du rock italien avec VASKO !
         </p>
         <a href="groupe/membres" class="inline-block mt-6 bg-[#fffe03] text-black px-8 py-3 text-lg font-bold uppercase rounded-lg hover:scale-105 transition-all duration-300 shadow-[0_0_20px_#fffe03]">
@@ -83,7 +83,7 @@
 <!-- Réseaux Sociaux Section -->
 <div class="w-full bg-zinc-900 py-16 px-4">
   <div class="max-w-6xl mx-auto">
-    <h2 class="text-5xl font-bold text-[#fffe03] text-center uppercase mb-12 tracking-wide">
+    <h2 class="text-3xl md:text-5xl font-bold text-[#fffe03] text-center uppercase mb-8 md:mb-12 tracking-wide">
       Suivez-nous
     </h2>
     <div class="flex justify-center gap-8 flex-wrap">
@@ -109,25 +109,25 @@
 <!-- Statistiques Section -->
 <div class="w-full bg-black py-16 px-4">
   <div class="max-w-6xl mx-auto">
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
       <div class="text-center">
-        <div class="text-6xl font-bold text-[#fffe03] mb-2">12+</div>
-        <p class="text-white text-xl font-semibold">Années d'existence</p>
+        <div class="text-4xl md:text-6xl font-bold text-[#fffe03] mb-2">12+</div>
+        <p class="text-white text-base md:text-xl font-semibold">Années d'existence</p>
         <p class="text-gray-400 text-sm">Depuis 2014</p>
       </div>
       <div class="text-center">
-        <div class="text-6xl font-bold text-[#fffe03] mb-2">50+</div>
-        <p class="text-white text-xl font-semibold">Concerts</p>
+        <div class="text-4xl md:text-6xl font-bold text-[#fffe03] mb-2">30+</div>
+        <p class="text-white text-base md:text-xl font-semibold">Concerts</p>
         <p class="text-gray-400 text-sm">En Normandie</p>
       </div>
       <div class="text-center">
-        <div class="text-6xl font-bold text-[#fffe03] mb-2">1000+</div>
-        <p class="text-white text-xl font-semibold">Fans</p>
+        <div class="text-4xl md:text-6xl font-bold text-[#fffe03] mb-2">1000+</div>
+        <p class="text-white text-base md:text-xl font-semibold">Fans</p>
         <p class="text-gray-400 text-sm">Qui nous soutiennent</p>
       </div>
       <div class="text-center">
-        <div class="text-6xl font-bold text-[#fffe03] mb-2">100%</div>
-        <p class="text-white text-xl font-semibold">Passion</p>
+        <div class="text-4xl md:text-6xl font-bold text-[#fffe03] mb-2">100%</div>
+        <p class="text-white text-base md:text-xl font-semibold">Passion</p>
         <p class="text-gray-400 text-sm">À chaque performance</p>
       </div>
     </div>
@@ -137,54 +137,17 @@
 <!-- Galerie Photos Section -->
 <div class="w-full bg-zinc-900 py-20 px-4">
   <div class="max-w-6xl mx-auto">
-    <h2 class="text-5xl font-bold text-[#fffe03] text-center uppercase mb-12 tracking-wide">
+    <h2 class="text-3xl md:text-5xl font-bold text-[#fffe03] text-center uppercase mb-8 md:mb-12 tracking-wide">
       Galerie
     </h2>
-    
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div class="relative group overflow-hidden rounded-lg h-64">
-        <img src="concert-tele-2025.jpg" alt="VASKO en concert" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-          <p class="text-white text-lg font-bold">VASKO en concert</p>
-        </div>
-      </div>
-      
-      <div class="relative group overflow-hidden rounded-lg h-64">
-        <img src="concert-pa.jpg" alt="Performance live" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-          <p class="text-white text-lg font-bold">Performance live</p>
-        </div>
-      </div>
-      
-      <div class="relative group overflow-hidden rounded-lg h-64">
-        <img src="repete-2023.jpeg" alt="Énergie du groupe" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-          <p class="text-white text-lg font-bold">Énergie du groupe</p>
-        </div>
-      </div>
-      
-      <div class="relative group overflow-hidden rounded-lg h-64">
-        <img src="repete-2024.jpg" alt="En repête" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-          <p class="text-white text-lg font-bold">En repête</p>
-        </div>
-      </div>
-      
-      <div class="relative group overflow-hidden rounded-lg h-64">
-        <img src="concert-may.jpeg" alt="Ambiance festive" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-          <p class="text-white text-lg font-bold">Ambiance festive</p>
-        </div>
-      </div>
-      
-      <div class="relative group overflow-hidden rounded-lg h-64">
-        <img src="repete-2025.jpeg" alt="Moments backstage" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-          <p class="text-white text-lg font-bold">Moments backstage</p>
-        </div>
-      </div>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-6">
+      <app-picture-card imageSrc="images/concerts/2025/moult-3-12.jpg" imageAlt="VASKO en concert" label="VASKO en concert"></app-picture-card>
+      <app-picture-card imageSrc="images/concerts/2025/pa-12-07-2.jpg" imageAlt="Performance live" label="Performance live"></app-picture-card>
+      <app-picture-card imageSrc="images/repete/2023/repete-23-11.jpeg" imageAlt="Énergie du groupe" label="Énergie du groupe"></app-picture-card>
+      <app-picture-card imageSrc="images/repete/2024/repete-30-03.jpg" imageAlt="En repête" label="En repête"></app-picture-card>
+      <app-picture-card imageSrc="images/concerts/2025/may-21-06.jpeg" imageAlt="Ambiance festive" label="Ambiance festive"></app-picture-card>
+      <app-picture-card imageSrc="images/repete/2025/repete-24-11.jpeg" imageAlt="Moments backstage" label="Moments backstage"></app-picture-card>
     </div>
-    
     <div class="text-center mt-12">
       <a href="galerie" class="inline-block bg-[#fffe03] text-black px-8 py-3 text-lg font-bold uppercase rounded-lg hover:scale-105 transition-all duration-300 shadow-[0_0_20px_#fffe03]">
         Voir toute la galerie
@@ -194,9 +157,12 @@
 </div>
 
 <!-- Newsletter Section -->
+
+
+<!--
 <div class="w-full bg-zinc-900 py-16 px-4">
   <div class="max-w-2xl mx-auto">
-    <h2 class="text-4xl font-bold text-[#fffe03] text-center uppercase mb-4 tracking-wide">
+    <h2 class="text-2xl md:text-4xl font-bold text-[#fffe03] text-center uppercase mb-4 tracking-wide">
       Restez connecté
     </h2>
     <p class="text-white text-center mb-8 text-lg">
@@ -230,3 +196,4 @@
     </form>
   </div>
 </div>
+-->
