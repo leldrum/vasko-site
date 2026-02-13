@@ -1,0 +1,119 @@
+[
+  {
+    "id": 1,
+    "image": "images/concerts/2024/argentan-21-06.jpeg",
+    "titre": "Concert à Argentan",
+    "description": "Une soirée énergique à la fête de la musique d'Argentan",
+    "date": "21 Juin 2024",
+    "categorie": "concert",
+    "lieu": "Argentan"
+  },
+  {
+    "id": 2,
+    "image": "images/concerts/2024/esquay-notre-dame-22-06.jpeg",
+    "titre": "Concert à Esquay-Notre-Dame",
+    "description": "Performance mémorable à la fête de la musique d'Esquay-Notre-Dame",
+    "date": "22 Juin 2024",
+    "categorie": "concert",
+    "lieu": "Esquay-Notre-Dame"
+  },
+  {
+    "id": 3,
+    "image": "images/concerts/2024/moult-1-12.jpeg",
+    "titre": "Concert à Moult",
+    "description": "Une soirée rock à Moult",
+    "date": "1 Décembre 2024",
+    "categorie": "concert",
+    "lieu": "Moult"
+  },
+  {
+    "id": 4,
+    "image": "images/concerts/2025/may-21-06.jpeg",
+    "titre": "Concert à May-sur-Orne",
+    "description": "Une soirée inoubliable pour la fête de la musique",
+    "date": "21 Juin 2025",
+    "categorie": "concert",
+    "lieu": "May-sur-Orne"
+  },
+  {
+    "id": 5,
+    "image": "images/concerts/2025/mondeville-30-01.jpeg",
+    "titre": "Concert à Mondeville",
+    "description": "Un show énergique à Mondeville",
+    "date": "30 Janvier 2025",
+    "categorie": "concert",
+    "lieu": "Mondeville"
+  },
+  {
+    "id": 6,
+    "image": "images/concerts/2025/moult-3-12.jpg",
+    "titre": "Concert à Moult",
+    "description": "Retour sur scène à Moult pour une soirée mémorable",
+    "date": "3 Décembre 2025",
+    "categorie": "concert",
+    "lieu": "Moult"
+  },
+  {
+    "id": 7,
+    "image": "images/concerts/2025/pa-12-07-2.jpg",
+    "titre": "Concert à Pont-Audemer",
+    "description": "Un show électrisant à Pont-Audemer",
+    "date": "12 Juillet 2025",
+    "categorie": "concert",
+    "lieu": "Pont-Audemer"
+  },
+  {
+    "id": 8,
+    "image": "images/concerts/2025/pa-12-07.jpg",
+    "titre": "L'avant performance live à Pont-Audemer",
+    "description": "Moments en coulisse à Pont-Audemer",
+    "date": "12 Juillet 2025",
+    "categorie": "backstage",
+    "lieu": "Pont-Audemer"
+  },
+  {
+    "id": 9,
+    "image": "images/repete/2023/repete-23-11.jpeg",
+    "titre": "Première répétition",
+    "description": "Un début tonitruant pour le groupe",
+    "date": "23 Novembre 2023",
+    "categorie": "studio",
+    "lieu": "Studio à la maison"
+  },
+  {
+    "id": 10,
+    "image": "images/repete/2024/repete-30-03.jpg",
+    "titre": "Répétition intense",
+    "description": "Préparation acharnée pour les prochains concerts",
+    "date": "30 Mars 2024",
+    "categorie": "studio",
+    "lieu": "Studio à la maison"
+  },
+  {
+    "id": 11,
+    "image": "images/repete/2024/repete-8-05.jpeg",
+    "titre": "Session de répétition",
+    "description": "Travail en équipe pour peaufiner le répertoire",
+    "date": "8 Mai 2024",
+    "categorie": "studio",
+    "lieu": "Studio à la maison"
+  },
+  {
+    "id": 12,
+    "image": "images/repete/2025/repete-24-11.jpeg",
+    "titre": "Répétition backstage",
+    "description": "Coulisses de la préparation du prochain concert",
+    "date": "24 Novembre 2025",
+    "categorie": "backstage",
+    "lieu": "Studio à la maison"
+  },
+  {
+    "id": 13,
+    "image": "images/repete/2025/repete-26-03.jpeg",
+    "titre": "Répétition de printemps",
+    "description": "Une session pleine d'énergie et de créativité",
+    "date": "26 Mars 2025",
+    "categorie": "studio",
+    "lieu": "Studio à la maison"
+  }
+]
