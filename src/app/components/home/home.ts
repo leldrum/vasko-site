@@ -19,7 +19,8 @@ export class Home {
   private lienMaps: string = "https://maps.app.goo.gl/DNuxG6UBrrDvTutTA";
   
   // YouTube video
-  private youtubeVideoId: string = "JGBokIr_tPw?si=bESoHfaKl3vU9ATG"; 
+  private youtubeVideoId: string = "JGBokIr_tPw";
+  youtubeEmbedUrl: SafeResourceUrl;
   
   // Newsletter
   newsletterEmail: string = '';
@@ -28,6 +29,9 @@ export class Home {
   private isSubmitting: boolean = false;
 
   constructor(private sanitizer: DomSanitizer){
+    this.youtubeEmbedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
+      `https://www.youtube.com/embed/${this.youtubeVideoId}?rel=0&modestbranding=1`
+    );
     if(this.heureConcert !== null && this.dateActuelle < this.heureConcert){
       this.dateActuelle = new Date();
       this.stringDecompte = this.reglageCompteur();

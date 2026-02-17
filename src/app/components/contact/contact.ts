@@ -34,7 +34,7 @@ export class Contact implements OnInit{
       this.errorMessage = '';
       this.formSubmitted = false;
 
-      this.http.post('http://localhost:8080/api/contact', this.contactForm.value)
+      this.http.post('/api/contact', this.contactForm.value)
         .subscribe({
           next: (response) => {
             console.log('Succès:', response);
