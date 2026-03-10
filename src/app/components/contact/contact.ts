@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClient,  HttpClientModule} from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-contact',
@@ -34,7 +35,7 @@ export class Contact implements OnInit{
       this.errorMessage = '';
       this.formSubmitted = false;
 
-      this.http.post('/api/contact', this.contactForm.value)
+      this.http.post(`${environment.apiUrl}/contact`, this.contactForm.value)
         .subscribe({
           next: (response) => {
             console.log('Succès:', response);
