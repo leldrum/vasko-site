@@ -98,5 +98,15 @@
     "image": null,
     "lienMaps": "https://maps.app.goo.gl/DNuxG6UBrrDvTutTA",
     "type": "fete-musique"
+  },
+  {
+    "id": 11,
+    "nom": "Concert au BacBam de Moult",
+    "lieu": "Moult",
+    "date": "2026-09-26T20:30:00",
+    "description": "Rendez-vous pour une soirée rock au BacBam de Moult ! Venez nombreux pour une performance de VASKO et de nos amis OldBack !",
+    "image": null,
+    "lienMaps": "https://maps.app.goo.gl/Zy8Q8ncFfww2MhbZ7",
+    "type": "soiree"
   }
 ]
