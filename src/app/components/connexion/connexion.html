@@ -1,0 +1,28 @@
+<div>
+  <div>
+    <form>
+
+      <div>
+        <h2>Espace membres</h2>
+        <p>Connexion réservée au groupe</p>
+      </div>
+
+      <div >
+        <label for="username" >Identifiant</label>
+        <input
+          id="username"
+          type="text"
+          formControlName="username"
+          autocomplete="username"
+          placeholder="Votre identifiant">
+      
+      </div>
+
+      <div class="card flex justify-center">
+            <p-password [(ngModel)]="value" [toggleMask]="true" autocomplete="off" />
+      </div>
+
+     
+    </form>
+  </div>
+</div>
