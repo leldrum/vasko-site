@@ -1,0 +1,121 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="mt-60 bg-zinc-900">
+  
+    <p-floatlabel variant="on">
+      <p-datepicker 
+        inputId="date"
+        formControlName="date"
+        dateFormat="dd-mm-yy"
+        [showIcon]="true"
+        [iconDisplay]="'input'"
+        dataType="string">
+      </p-datepicker>
+      <label for="date">Date du concert</label>
+    </p-floatlabel>
+
+    <p-floatlabel variant="on">
+      <input 
+        pInputText 
+        id="titre"
+        type="text"
+        formControlName="title"
+        autocomplete="off" 
+      />
+      <label for="titre">Titre du concert</label>
+    </p-floatlabel>
+
+   
+
+    
+    @for (desc of descriptions.controls; track i; let i = $index) {
+        <p-floatlabel variant="on">
+            <textarea  
+                pTextarea  
+                [id]="'description-' + i"
+                [formControl]="getDescriptionControl(i)"
+            ></textarea>
+            <label [for]="'description-' + i">Description {{ i + 1 }}</label>
+        </p-floatlabel>
+
+        @if (i > 0) {
+            <p-button 
+                (onClick)="removeDescription(i)"
+                label="Supprimer la description"
+                severity="danger"
+            />
+        }
+    }
+
+    <p-button 
+        (onClick)="addDescription()"
+        label="Ajouter une description"
+    />
+
+   
+
+     <p-floatlabel variant="on">
+      <input 
+        pInputText 
+        id="address"
+        type="text"
+        formControlName="address"
+        autocomplete="off" 
+      />
+      <label for="address">adresse</label>
+    </p-floatlabel>
+
+    <p-floatlabel variant="on">
+      <input 
+        pInputText 
+        id="link_maps"
+        type="text"
+        formControlName="link_maps"
+        autocomplete="off" 
+      />
+      <label for="link_maps">lien Google Maps</label>
+    </p-floatlabel>
+
+    <p-floatlabel variant="on">
+      <input 
+        pInputText 
+        id="city"
+        type="text"
+        formControlName="city"
+        autocomplete="off" 
+      />
+      <label for="city">ville</label>
+    </p-floatlabel>
+
+    <p-floatlabel variant="on">
+      <p-datepicker 
+        inputId="time"
+        formControlName="time"
+        [showIcon]="true"
+        [timeOnly]="true"
+        [iconDisplay]="'input'"
+        dataType="string">
+            <ng-template #inputicon>
+                <i class="pi pi-clock"></i>
+            </ng-template>
+      </p-datepicker>
+      <label for="time">Heure du concert</label>
+    </p-floatlabel>
+
+    <p-floatlabel variant="on">
+        <p-select 
+            inputId="type"
+            [options]="concertTypeOptions"
+            optionLabel="label"
+            optionValue="value"
+            formControlName="type"
+        ></p-select>
+        <label for="type">Type de concert</label>
+    </p-floatlabel>
+
+    <p-button 
+        label="Créer le concert" 
+        icon="pi pi-check"
+        (onClick)="onSubmit()"
+
+    />
+
+</form>

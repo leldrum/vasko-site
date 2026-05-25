@@ -1,0 +1,48 @@
+form {
+  max-width: 40%;
+  margin: 1rem auto;
+  margin-top: 200px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+h2 {
+    font-size: large;
+    color: yellow;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-self: center;
+    flex-direction: column;
+
+}
+
+
+p-datepicker, textarea {
+  width: 100%;
+}
+
+
+div {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+
+
+@media (max-width: 640px) {
+  form {
+    padding: 1rem;
+    margin: 1rem;
+  }
+
+  div {
+    flex-direction: column;
+  }
+
+  p-button {
+    width: 100%;
+  }
+}

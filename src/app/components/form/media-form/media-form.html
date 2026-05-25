@@ -1,0 +1,74 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="mt-60">
+
+    @if(this.form.value.concert_id === null){
+         <p-floatlabel variant="on">
+            <p-select 
+                inputId="rehearsal_id"
+                [options]="this.rehearsalStore.rehearsals()"
+                optionLabel="description"
+                optionValue="id"
+                formControlName="rehearsal_id"
+                [showClear]="true"
+            ></p-select>
+            <label for="rehearsal_id">Repette</label>
+        </p-floatlabel>
+    }
+
+    @if(this.form.value.rehearsal_id === null){
+        <p-floatlabel variant="on">
+            <p-select 
+                inputId="concert_id"
+                [options]="this.concertStore.concerts()"
+                optionLabel="title"
+                optionValue="id"
+                formControlName="concert_id"
+                [showClear]="true"
+            ></p-select>
+            <label for="concert_id">Concert</label>
+        </p-floatlabel>
+    }
+
+    
+
+    <p-floatlabel variant="on">
+      <input 
+        pInputText 
+        id="description"
+        type="text"
+        formControlName="description"
+        autocomplete="off" 
+      />
+      <label for="description">description du média</label>
+    </p-floatlabel>
+
+
+     <p-floatlabel variant="on">
+        <p-select 
+            inputId="type"
+            [options]="mediaTypeOptions"
+            optionLabel="label"
+            optionValue="value"
+            formControlName="type"
+            [showClear]="true"
+        ></p-select>
+        <label for="type">Type de média</label>
+    </p-floatlabel>
+
+    <p-fileupload
+        #fileUploader 
+        mode="basic" 
+        name="files[]" 
+        chooseIcon="pi pi-upload" 
+        [auto]="false" 
+        chooseLabel="Browse"
+        (onSelect)="onUpload($event)"
+    />
+
+    <p-button 
+        label="Ajouter le média"
+        (onClick)="onSubmit()"
+        [loading]="isLoading()"
+        [disabled]="form.invalid || !selectedFile"
+    />    
+
+</form>

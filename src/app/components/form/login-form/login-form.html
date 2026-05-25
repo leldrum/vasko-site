@@ -1,0 +1,27 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="mt-60 bg-zinc-900">
+
+    <p-floatlabel variant="on">
+        <input 
+            pInputText
+            type="email" 
+            id="mail"
+            formControlName="mail"
+        />
+        <label for="mail">Mail</label>
+    </p-floatlabel>
+
+    <p-floatlabel variant="on">
+        <p-password
+            id="password"
+            formControlName="password"
+            [toggleMask]="true"
+        ></p-password>
+        <label for="password">Mot de passe</label>
+    </p-floatlabel>
+
+    <p-button
+        (onClick)="onSubmit()"
+        label="Se Connecter"
+    />
+
+</form>
