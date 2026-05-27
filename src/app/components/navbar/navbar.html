@@ -1,7 +1,5 @@
 <nav 
-  [class]="scrolled 
-    ? 'fixed top-0 left-0 right-0 z-50 navbar bg-black px-4 md:px-6 py-2 flex justify-between items-center border-b-4 border-[#fffe03] shadow-[0_0_15px_#fffe03] transition-all duration-300' 
-    : 'sticky top-6 z-50 navbar bg-black px-4 md:px-6 py-2 flex justify-between items-center rounded-lg m-3 md:m-5 border-4 border-[#fffe03] shadow-[0_0_15px_#fffe03] transition-all duration-300'">
+  [class]="'fixed top-0 left-0 right-0 z-50 navbar bg-black px-4 md:px-6 py-2 flex justify-between items-center border-b-4 border-[#fffe03] shadow-[0_0_15px_#fffe03] transition-all duration-300'">
   <div class="navbar-logo flex items-center gap-3">
     <a routerLink="/" routerLinkActive="active" class="flex items-center">
       <img [class]="scrolled ? 'h-10 md:h-12 hover:scale-105 transition-all duration-300' : 'h-12 md:h-16 hover:scale-105 transition-all duration-300'" src="images/logo.jpg">
@@ -60,6 +58,28 @@
         Contact
       </a>
     </li>
+      @if (!authService.isAuthenticated()) {
+        <li>
+          <a routerLink="/login" routerLinkActive="active"
+            class="transition duration-300 hover:text-gray-400 hover:underline underline-offset-4 decoration-[#fffe03]">
+            Se connecter
+          </a>
+        </li>
+      }
+    @if (authService.isAuthenticated()) {
+      <li>
+         <a routerLink="/admin" routerLinkActive="active" 
+         class="transition duration-300 hover:text-gray-400 hover:underline underline-offset-4 decoration-[#fffe03] flex items-center gap-2">
+            gérer
+         </a>
+    </li>
+      <li>
+        <button (click)="logout()"
+           class="transition duration-300 hover:text-gray-400 hover:underline underline-offset-4 decoration-[#fffe03]">
+          Déconnexion
+        </button>
+      </li>
+    }
   </ul>
 </nav>
 
@@ -82,6 +102,11 @@
       <li>
         <a routerLink="/contact" (click)="closeMenu()" class="hover:text-white transition duration-300">Contact</a>
       </li>
+      @if (authService.isAuthenticated()) {
+        <li>
+          <button (click)="logout()" class="hover:text-white transition duration-300">Déconnexion</button>
+        </li>
+      }
     </ul>
   </div>
 }

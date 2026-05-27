@@ -1,0 +1,49 @@
+
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+  <h2>Création de la repette</h2>
+
+  <p-floatlabel variant="on">
+    <p-datepicker 
+      inputId="date"
+      formControlName="date"
+      dateFormat="dd-mm-yy"
+      [showIcon]="true"
+      dataType="string"
+    >
+    </p-datepicker>
+    <label for="date">Date</label>
+  </p-floatlabel>
+
+  <p-floatlabel variant="on">
+    <textarea
+      pTextarea
+      inputId="description"
+      formControlName="description"
+    ></textarea>
+    <label for="description" >Description</label>
+  </p-floatlabel>
+
+  <div class="btn-classe">
+    <p-button
+      type="button"
+      label="Annuler"
+      severity="secondary"
+      (onClick)="form.reset()"
+      [outlined]="true"
+      icon="pi pi-times">
+    </p-button>
+    <p-button
+      type="button"
+      label="Enregistrer"
+      (onClick)="onSubmit()"
+      [disabled]="form.invalid"
+      [loading]="isLoading()"
+      loadingIcon="pi pi-spin pi-spinner"
+      icon="pi pi-check">
+    </p-button>
+  </div>
+</form>
+
+

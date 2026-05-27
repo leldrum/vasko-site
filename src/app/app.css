@@ -1,3 +1,11 @@
-body {
-    background-color: yellow;
+:host {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-content {
+    flex: 1;
+    display: block;
+    margin-top: 9rem;
 }

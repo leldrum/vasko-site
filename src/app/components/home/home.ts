@@ -1,8 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { PictureCard } from '../picture-card/picture-card';
+import { RehearsalService } from '../../services/rehearsal-service';
+import { RehearsalStore } from '../../stores/rehearsal-store';
+import { ConcertService } from '../../services/concert-service';
+import { ConcertStore } from '../../stores/concert-store';
+import { MediaStore } from '../../stores/media-store';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +15,7 @@ import { PictureCard } from '../picture-card/picture-card';
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
-export class Home {
+export class Home implements OnInit {
 
   private heureConcert: Date | null = new Date("2026-06-21T20:30:00");
   private dateActuelle: Date = new Date();
@@ -28,6 +33,10 @@ export class Home {
   newsletterStatus: 'success' | 'error' | '' = '';
   private isSubmitting: boolean = false;
 
+  storeRehearsal = inject(RehearsalStore);
+  concert = inject(ConcertStore);
+  media = inject(MediaStore);
+
   constructor(private sanitizer: DomSanitizer){
     this.youtubeEmbedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
       `https://www.youtube.com/embed/${this.youtubeVideoId}?rel=0&modestbranding=1`
@@ -42,6 +51,15 @@ export class Home {
     }
     else
       this.heureConcert = null;
+  }
+
+
+  ngOnInit(): void {
+    this.storeRehearsal.getAllRehearsals();
+    this.storeRehearsal.getRehearsal(100);
+    this.concert.getAllConcerts();
+    this.media.getAllMedias();
+
   }
 
   private reglageCompteur(): string {
@@ -84,32 +102,6 @@ export class Home {
     return this.isSubmitting;
   }
 
-  public subscriberNewsletter(): void {
-    if (!this.newsletterEmail || !this.newsletterEmail.includes('@')) {
-      this.newsletterMessage = 'Veuillez entrer une adresse email valide';
-      this.newsletterStatus = 'error';
-      return;
-    }
-
-    this.isSubmitting = true;
-    this.newsletterMessage = '';
-    this.newsletterStatus = '';
-
-    // Simule un appel API (à remplacer par un vrai service)
-    setTimeout(() => {
-      // Pour l'instant, on suppose que ça marche
-      this.newsletterMessage = `✓ Merci ! Un email de confirmation a été envoyé à ${this.newsletterEmail}`;
-      this.newsletterStatus = 'success';
-      this.newsletterEmail = '';
-      this.isSubmitting = false;
-
-      // Efface le message après 5 secondes
-      setTimeout(() => {
-        this.newsletterMessage = '';
-        this.newsletterStatus = '';
-      }, 5000);
-    }, 1000);
-  }
 
   public getYouTubeEmbedUrl(): SafeResourceUrl {
     return this.sanitizer.bypassSecurityTrustResourceUrl(
