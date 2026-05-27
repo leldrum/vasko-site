@@ -1,6 +1,11 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()" class="mt-60">
 
-    @if(this.form.value.concert_id === null){
+    <h2>
+        Création d'un média
+    </h2>
+
+    <div>
+        @if(this.form.value.concert_id === null){
          <p-floatlabel variant="on">
             <p-select 
                 inputId="rehearsal_id"
@@ -27,7 +32,7 @@
             <label for="concert_id">Concert</label>
         </p-floatlabel>
     }
-
+    </div>
     
 
     <p-floatlabel variant="on">
@@ -49,7 +54,6 @@
             optionLabel="label"
             optionValue="value"
             formControlName="type"
-            [showClear]="true"
         ></p-select>
         <label for="type">Type de média</label>
     </p-floatlabel>
@@ -64,11 +68,24 @@
         (onSelect)="onUpload($event)"
     />
 
-    <p-button 
-        label="Ajouter le média"
+   <div class="btn-classe">
+        <p-button
+        type="button"
+        label="Annuler"
+        severity="secondary"
+        (onClick)="form.reset()"
+        [outlined]="true"
+        icon="pi pi-times">
+        </p-button>
+        <p-button
+        type="button"
+        label="Enregistrer"
         (onClick)="onSubmit()"
+        [disabled]="form.invalid"
         [loading]="isLoading()"
-        [disabled]="form.invalid || !selectedFile"
-    />    
+        loadingIcon="pi pi-spin pi-spinner"
+        icon="pi pi-check">
+        </p-button>
+    </div>
 
 </form>

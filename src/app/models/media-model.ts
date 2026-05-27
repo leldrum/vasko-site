@@ -1,6 +1,7 @@
 import { Concert } from "./concert-model";
 import { mediaType } from "./enum/mediaType";
 import { User } from "./user-model";
+import { Rehearsal } from "./rehearsal-model";
 
 export interface Media {
   id: number;

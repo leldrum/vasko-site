@@ -1,4 +1,8 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit()" class="mt-60 bg-zinc-900">
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="mt-60">
+
+    <h2>
+        Se Connecter
+    </h2>
 
     <p-floatlabel variant="on">
         <input 
@@ -15,6 +19,9 @@
             id="password"
             formControlName="password"
             [toggleMask]="true"
+            autocomplete="off"
+            [feedback]="false"
+
         ></p-password>
         <label for="password">Mot de passe</label>
     </p-floatlabel>

@@ -2,6 +2,7 @@ import { FormControl, FormGroup } from "@angular/forms";
 import { mediaType } from "../../../models/enum/mediaType";
 import { Concert } from "../../../models/concert-model";
 import { User } from "../../../models/user-model";
+import { Rehearsal } from "../../../models/rehearsal-model";
 
 
 export type mediaForm = FormGroup<{

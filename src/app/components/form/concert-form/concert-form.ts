@@ -77,6 +77,7 @@ export class ConcertForm implements OnInit {
     this.concertService.create(this.form.getRawValue()).subscribe({
       next: () => {
         this.notification.success("concert créé avec succès !");
+        this.form.reset();
         this.isLoading.set(false);
       },
       error: (err) => {

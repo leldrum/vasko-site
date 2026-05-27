@@ -59,7 +59,7 @@ export const appConfig: ApplicationConfig = {
     })),
     providePrimeNG({
       translation: {
-        firstDayOfWeek: 1, // Lundi
+        firstDayOfWeek: 1, 
         dayNames: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
         dayNamesShort: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
         dayNamesMin: ['Di', 'Lu', 'Ma', 'Me', 'Je', 'Ve', 'Sa'],

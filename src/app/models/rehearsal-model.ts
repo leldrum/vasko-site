@@ -1,11 +1,13 @@
-interface Rehearsal {
+import { Media } from "./media-model";
+
+export interface Rehearsal {
   id: number;
   date: string;
   description: string;
   medias: Media[];
 }
 
-interface RehearsalCreate {
+export interface RehearsalCreate {
   date: string;
   description: string;
 }

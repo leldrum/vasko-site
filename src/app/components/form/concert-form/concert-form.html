@@ -1,5 +1,10 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit()" class="mt-60 bg-zinc-900">
-  
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="mt-60">
+
+  <h2>
+    Création d'un Concert
+  </h2>
+
+  <div>
     <p-floatlabel variant="on">
       <p-datepicker 
         inputId="date"
@@ -13,15 +18,33 @@
     </p-floatlabel>
 
     <p-floatlabel variant="on">
-      <input 
-        pInputText 
-        id="titre"
-        type="text"
-        formControlName="title"
-        autocomplete="off" 
-      />
-      <label for="titre">Titre du concert</label>
+      <p-datepicker 
+        inputId="time"
+        formControlName="time"
+        [showIcon]="true"
+        [timeOnly]="true"
+        [iconDisplay]="'input'"
+        dataType="string">
+            <ng-template #inputicon>
+                <i class="pi pi-clock"></i>
+            </ng-template>
+      </p-datepicker>
+      <label for="time">Heure du concert</label>
     </p-floatlabel>
+
+  </div>
+  
+
+  <p-floatlabel variant="on">
+    <input 
+      pInputText 
+      id="titre"
+      type="text"
+      formControlName="title"
+      autocomplete="off" 
+    />
+    <label for="titre">Titre du concert</label>
+  </p-floatlabel>
 
    
 
@@ -51,17 +74,30 @@
     />
 
    
+    <div>
+       <p-floatlabel variant="on">
+        <input 
+          pInputText 
+          id="address"
+          type="text"
+          formControlName="address"
+          autocomplete="off" 
+        />
+        <label for="address">adresse</label>
+      </p-floatlabel>
 
-     <p-floatlabel variant="on">
-      <input 
-        pInputText 
-        id="address"
-        type="text"
-        formControlName="address"
-        autocomplete="off" 
-      />
-      <label for="address">adresse</label>
-    </p-floatlabel>
+      <p-floatlabel variant="on">
+        <input 
+          pInputText 
+          id="city"
+          type="text"
+          formControlName="city"
+          autocomplete="off" 
+        />
+        <label for="city">ville</label>
+      </p-floatlabel>
+    </div>
+    
 
     <p-floatlabel variant="on">
       <input 
@@ -74,31 +110,6 @@
       <label for="link_maps">lien Google Maps</label>
     </p-floatlabel>
 
-    <p-floatlabel variant="on">
-      <input 
-        pInputText 
-        id="city"
-        type="text"
-        formControlName="city"
-        autocomplete="off" 
-      />
-      <label for="city">ville</label>
-    </p-floatlabel>
-
-    <p-floatlabel variant="on">
-      <p-datepicker 
-        inputId="time"
-        formControlName="time"
-        [showIcon]="true"
-        [timeOnly]="true"
-        [iconDisplay]="'input'"
-        dataType="string">
-            <ng-template #inputicon>
-                <i class="pi pi-clock"></i>
-            </ng-template>
-      </p-datepicker>
-      <label for="time">Heure du concert</label>
-    </p-floatlabel>
 
     <p-floatlabel variant="on">
         <p-select 
@@ -111,11 +122,24 @@
         <label for="type">Type de concert</label>
     </p-floatlabel>
 
-    <p-button 
-        label="Créer le concert" 
-        icon="pi pi-check"
+    <div class="btn-classe">
+      <p-button
+        type="button"
+        label="Annuler"
+        severity="secondary"
+        (onClick)="form.reset()"
+        [outlined]="true"
+        icon="pi pi-times">
+      </p-button>
+      <p-button
+        type="button"
+        label="Enregistrer"
         (onClick)="onSubmit()"
-
-    />
+        [disabled]="form.invalid"
+        [loading]="isLoading()"
+        loadingIcon="pi pi-spin pi-spinner"
+        icon="pi pi-check">
+      </p-button>
+    </div>
 
 </form>

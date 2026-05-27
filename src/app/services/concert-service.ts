@@ -2,8 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { environment } from "../../environments/environment";
-import { Concert } from "../components/concert/concert";
-import { ConcertCreate } from "../models/concert-model";
+import { Concert, ConcertCreate } from "../models/concert-model";
 
 @Injectable({ providedIn: 'root' })
 

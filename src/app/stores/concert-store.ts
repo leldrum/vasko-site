@@ -1,6 +1,6 @@
 import { Injectable, signal } from "@angular/core";
 import { ConcertService } from "../services/concert-service";
-import { Concert } from "../components/concert/concert";
+import { Concert } from "../models/concert-model";
 
 @Injectable({ providedIn: 'root' })
 
