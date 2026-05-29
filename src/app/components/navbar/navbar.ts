@@ -11,14 +11,9 @@ import { AuthService } from '../../services/auth-service';
 })
 export class Navbar {
   menuOpen = false;
-  scrolled = false;
 
   constructor(public authService: AuthService, private router: Router) {}
 
-  @HostListener('window:scroll')
-  onScroll() {
-    this.scrolled = window.scrollY > 50;
-  }
 
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
