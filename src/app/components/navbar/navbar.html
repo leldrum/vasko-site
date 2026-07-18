@@ -1,68 +1,7 @@
-<nav>
-
-    
-      
-    
-  
-
-  <ul class="filters">    
-
-      <img class="logo"  src="images/logo.jpg" routerLink="/">
-     <li class="relative group">
-      <button class="">
-        Le Groupe
-      </button>
-      
-     
-        <a routerLink="/groupe/histoire" 
-           class="">
-          Notre histoire
-        </a>
-        <a routerLink="/groupe/membres" 
-           class="">
-          Les membres
-        </a>
-    
-    </li>
-    <li>
-      <a routerLink="/concert" routerLinkActive="active"
-         class="">
-        Concerts
-      </a>
-    </li>
-     <li>
-      <a routerLink="/galerie" routerLinkActive="active"
-         class="">
-        Galerie
-      </a>
-    </li>
-    <li>
-      <a routerLink="/contact" routerLinkActive="active"
-         class="">
-        Contact
-      </a>
-    </li>
-      @if (!authService.isAuthenticated()) {
-        <li>
-          <a routerLink="/login" routerLinkActive="active"
-            class="">
-            Se connecter
-          </a>
-        </li>
-      }
-    @if (authService.isAuthenticated()) {
-      <li>
-         <a routerLink="/admin" routerLinkActive="active" 
-         class="">
-            gérer
-         </a>
-    </li>
-      <li>
-        <button (click)="logout()"
-           class="">
-          Déconnexion
-        </button>
-      </li>
-    }
-  </ul>
+<nav class="navbar">
+  <div class="navbar-container">
+    <img class="navbar-logo" src="images/logo.jpg" routerLink="/" alt="Logo">
+    <p-menubar class="navbar-menu" [model]="itemNavbar"></p-menubar>
+    <p-menubar class="navbar-auth" [model]="authItems"></p-menubar>
+  </div>
 </nav>

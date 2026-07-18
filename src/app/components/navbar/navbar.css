@@ -1,27 +1,61 @@
-nav {
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 2px solid var(--p-primary-color);
+.navbar {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    z-index: 40;
-    background-color: black;
+    z-index: 1000;
+    background-color: #000;
+    border-bottom: 2px solid var(--p-primary-color);
     width: 100%;
 }
 
-.logo {
-    padding: 1rem;
-    height: 6rem;
-}
-
-.filters {
+.navbar-container {
     display: flex;
-    flex-direction: row;
-
+    align-items: center;
+    padding: 0 2rem;
+    height: 80px;
+    gap: 3rem;
 }
 
-.filters a{
-    color: aqua;
+.navbar-logo {
+    height: 60px;
+    width: auto;
+    cursor: pointer;
+    flex-shrink: 0;
 }
+
+.navbar-menu {
+    flex: 1;
+}
+
+.navbar-auth {
+    margin-left: auto;
+}
+
+:host ::ng-deep .navbar-menu.p-menubar,
+:host ::ng-deep .navbar-auth.p-menubar {
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+:host ::ng-deep .navbar-menu .p-menubar-root-list,
+:host ::ng-deep .navbar-auth .p-menubar-root-list {
+    display: flex;
+    gap: 3rem;
+    background: transparent;
+}
+
+:host ::ng-deep .navbar-menu .p-menuitem-link,
+:host ::ng-deep .navbar-auth .p-menuitem-link {
+    color: #fff;
+    padding: 0.5rem 0;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+:host ::ng-deep .navbar-menu .p-menuitem-link:hover,
+:host ::ng-deep .navbar-auth .p-menuitem-link:hover {
+    color: var(--p-primary-color);
+}
+
