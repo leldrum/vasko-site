@@ -17,11 +17,11 @@ import { MediaStore } from '../../stores/media-store';
 })
 export class Home implements OnInit {
 
-  private heureConcert: Date | null = new Date("2026-06-21T20:30:00");
+  private heureConcert: Date | null = new Date("2026-09-26T20:30:00");
   private dateActuelle: Date = new Date();
   private stringDecompte: string = "Pas de concert de prévu...";
-  private lieuConcert: string = "à " + " la fête de la musique d'Argences";
-  private lienMaps: string = "https://maps.app.goo.gl/DNuxG6UBrrDvTutTA";
+  private lieuConcert: string = "au " + " BacBam";
+  private lienMaps: string = "https://maps.app.goo.gl/Zy8Q8ncFfww2MhbZ7";
   
   // YouTube video
   private youtubeVideoId: string = "JGBokIr_tPw";
