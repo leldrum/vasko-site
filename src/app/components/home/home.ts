@@ -17,6 +17,8 @@ import { MediaStore } from '../../stores/media-store';
 })
 export class Home implements OnInit {
 
+  private readonly youtubeEmbedHost: string = 'www.youtube-nocookie.com';
+
   private heureConcert: Date | null = new Date("2026-09-26T20:30:00");
   private dateActuelle: Date = new Date();
   private stringDecompte: string = "Pas de concert de prévu...";
@@ -39,7 +41,7 @@ export class Home implements OnInit {
 
   constructor(private sanitizer: DomSanitizer){
     this.youtubeEmbedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
-      `https://www.youtube.com/embed/${this.youtubeVideoId}?rel=0&modestbranding=1`
+      this.buildYouTubeEmbedUrl()
     );
     if(this.heureConcert !== null && this.dateActuelle < this.heureConcert){
       this.dateActuelle = new Date();
@@ -105,8 +107,12 @@ export class Home implements OnInit {
 
   public getYouTubeEmbedUrl(): SafeResourceUrl {
     return this.sanitizer.bypassSecurityTrustResourceUrl(
-      `https://www.youtube.com/embed/${this.youtubeVideoId}?rel=0&modestbranding=1`
+      this.buildYouTubeEmbedUrl()
     );
+  }
+
+  private buildYouTubeEmbedUrl(): string {
+    return `https://${this.youtubeEmbedHost}/embed/${this.youtubeVideoId}?rel=0&modestbranding=1`;
   }
 
   public setYouTubeVideoId(videoId: string): void {
