@@ -1,16 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { PictureCard } from '../picture-card/picture-card';
+import { MediaStore } from '../../stores/media-store';
+import { Media } from '../../models/media-model';
 
-export interface Photo {
-  id: number;
-  image: string;
-  titre: string;
-  description: string;
-  date: string;
-  categorie: 'concert' | 'studio' | 'backstage' | 'evenement';
-  lieu: string;
-}
+
 
 @Component({
   selector: 'app-galerie',
@@ -20,10 +14,8 @@ export interface Photo {
 })
 export class Galerie implements OnInit {
 
-  filtreActif: string = 'tous';
-  lightboxActive: boolean = false;
-  photoSelectionnee: Photo | null = null;
-  indexPhotoActuelle: number = 0;
+  mediaStore = inject(MediaStore);
+
 
   filtres = [
     { nom: 'Tous', valeur: 'tous' },
@@ -32,54 +24,14 @@ export class Galerie implements OnInit {
     { nom: 'Backstage', valeur: 'backstage' }
   ];
 
-  fotos: Photo[] = [];
+
 
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.http.get<Photo[]>('data/photos.json').subscribe(data => {
-      this.fotos = data;
-    });
+    this.mediaStore.getAllMedias();
   }
 
-  public setFiltre(filtre: string): void {
-    this.filtreActif = filtre;
-  }
 
-  public getFotosFiltrees(): Photo[] {
-    if (this.filtreActif === 'tous') {
-      return this.fotos;
-    }
-    return this.fotos.filter(foto => foto.categorie === this.filtreActif);
-  }
-
-  public ouvrirLightbox(photo: Photo): void {
-    this.photoSelectionnee = photo;
-    this.indexPhotoActuelle = this.getFotosFiltrees().findIndex(f => f.id === photo.id);
-    this.lightboxActive = true;
-    document.body.style.overflow = 'hidden';
-  }
-
-  public fermerLightbox(): void {
-    this.lightboxActive = false;
-    this.photoSelectionnee = null;
-    document.body.style.overflow = 'auto';
-  }
-
-  public precedent(): void {
-    const fotos = this.getFotosFiltrees();
-    this.indexPhotoActuelle = (this.indexPhotoActuelle - 1 + fotos.length) % fotos.length;
-    this.photoSelectionnee = fotos[this.indexPhotoActuelle];
-  }
-
-  public suivant(): void {
-    const fotos = this.getFotosFiltrees();
-    this.indexPhotoActuelle = (this.indexPhotoActuelle + 1) % fotos.length;
-    this.photoSelectionnee = fotos[this.indexPhotoActuelle];
-  }
-
-  ngOnDestroy(): void {
-    document.body.style.overflow = 'auto';
-  }
 
 }

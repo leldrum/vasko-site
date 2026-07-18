@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { PrimeIcons } from 'primeng/api';
 
 @Component({
   selector: 'app-footer',

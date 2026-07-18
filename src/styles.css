@@ -1,14 +1,15 @@
 @import 'tailwindcss';
 @tailwind utilities;
+@import "primeicons/primeicons.css";
 
-/* Ajout de styles globaux */
-@layer base {
-  body {
-    @apply text-white bg-gray-900;
-  }
+
+
+body {
+  background-color: black;
+  color: white;
 }
 
-/* Dans styles.css */
+
 .navbar-links {
   font-family: 'Bebas Neue', sans-serif;
   letter-spacing: 2px;

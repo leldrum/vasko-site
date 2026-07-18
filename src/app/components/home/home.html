@@ -141,12 +141,15 @@
       Galerie
     </h2>
     <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-6">
-      <app-picture-card imageSrc="images/concerts/2025/moult-3-12.jpg" imageAlt="VASKO en concert" label="VASKO en concert"></app-picture-card>
-      <app-picture-card imageSrc="images/concerts/2025/pa-12-07-2.jpg" imageAlt="Performance live" label="Performance live"></app-picture-card>
-      <app-picture-card imageSrc="images/repete/2023/repete-23-11.jpeg" imageAlt="Énergie du groupe" label="Énergie du groupe"></app-picture-card>
-      <app-picture-card imageSrc="images/repete/2024/repete-30-03.jpg" imageAlt="En repête" label="En repête"></app-picture-card>
-      <app-picture-card imageSrc="images/concerts/2025/may-21-06.jpeg" imageAlt="Ambiance festive" label="Ambiance festive"></app-picture-card>
-      <app-picture-card imageSrc="images/repete/2025/repete-24-11.jpeg" imageAlt="Moments backstage" label="Moments backstage"></app-picture-card>
+
+       @for (media of this.media.medias(); track $index) {
+           <app-picture-card 
+              [imageSrc]="media.url" 
+              [imageAlt]="media.description" 
+              [label]="media.description"
+            >
+            </app-picture-card>
+        }
     </div>
     <div class="text-center mt-12">
       <a routerLink="/galerie" class="inline-block bg-[#fffe03] text-black px-8 py-3 text-lg font-bold uppercase rounded-lg hover:scale-105 transition-all duration-300 shadow-[0_0_20px_#fffe03]">
@@ -155,45 +158,3 @@
     </div>
   </div>
 </div>
-
-<!-- Newsletter Section -->
-
-
-<!--
-<div class="w-full bg-zinc-900 py-16 px-4">
-  <div class="max-w-2xl mx-auto">
-    <h2 class="text-2xl md:text-4xl font-bold text-[#fffe03] text-center uppercase mb-4 tracking-wide">
-      Restez connecté
-    </h2>
-    <p class="text-white text-center mb-8 text-lg">
-      Abonnez-vous à notre newsletter pour ne pas manquer nos concerts et actualités
-    </p>
-    
-    <form (ngSubmit)="subscriberNewsletter()" class="flex flex-col gap-4">
-      <div class="flex flex-col sm:flex-row gap-4">
-        <input 
-          type="email" 
-          [(ngModel)]="newsletterEmail" 
-          name="email"
-          placeholder="Votre email"
-          class="flex-1 px-4 py-3 bg-black text-white border-2 border-[#fffe03] rounded-lg focus:outline-none focus:shadow-[0_0_20px_#fffe03] placeholder-gray-500"
-          required>
-        <button 
-          type="submit"
-          [disabled]="isSubmittingNewsletter()"
-          class="px-8 py-3 bg-[#fffe03] text-black font-bold uppercase rounded-lg hover:scale-105 transition-all duration-300 shadow-[0_0_20px_#fffe03] disabled:opacity-50 disabled:cursor-not-allowed">
-          {{isSubmittingNewsletter() ? 'Envoi...' : 'S\'abonner'}}
-        </button>
-      </div>
-      
-      @if (newsletterMessage) {
-        <p [class.text-green-400]="newsletterStatus === 'success'" 
-           [class.text-red-400]="newsletterStatus === 'error'" 
-           class="text-center font-semibold">
-          {{newsletterMessage}}
-        </p>
-      }
-    </form>
-  </div>
-</div>
--->

@@ -1,6 +1,9 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, inject, computed } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { RouterLink } from '@angular/router';
+import { ConcertStore } from '../../stores/concert-store';
+import { MediaStore } from '../../stores/media-store';
+import { Media } from '../../models/media-model';
 
 export interface ConcertData {
   id: number;
@@ -21,6 +24,9 @@ export interface ConcertData {
 })
 export class Concert implements OnInit, OnDestroy {
 
+  concert = inject(ConcertStore);
+  media = inject(MediaStore);
+
   concerts: ConcertData[] = [];
   prochainConcert: ConcertData | null = null;
   decompte: string = '';
@@ -36,6 +42,14 @@ export class Concert implements OnInit, OnDestroy {
   private moisNoms = ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'Août', 'Sep', 'Oct', 'Nov', 'Déc'];
   private moisComplets = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
 
+  // Computed signal pour indexer les medias par ID pour accès rapide
+  mediaById = computed(() => {
+    const medias = this.media.medias();
+    const map = new Map<number, Media>();
+    medias.forEach(m => map.set(m.id, m));
+    return map;
+  });
+
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
@@ -45,6 +59,13 @@ export class Concert implements OnInit, OnDestroy {
       this.extraireAnnees();
       this.trouverProchainConcert();
     });
+
+    this.concert.getAllConcerts();
+    this.media.getAllMedias();
+  }
+
+  getMediaById(id: number): Media | undefined {
+    return this.mediaById().get(id);
   }
 
   ngOnDestroy(): void {
